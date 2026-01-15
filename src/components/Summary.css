@@ -1,0 +1,370 @@
+/* Summary Component Styles */
+.summary {
+  min-height: 100vh;
+  background:   	#424242;
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  overflow-y: auto;
+}
+
+.summary.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.summary-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.summary-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats Section */
+.summary-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border: 2px solid rgba(8, 8, 8, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.stat-divider {
+  font-size: 1.2rem;
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+/* Percentage */
+.percentage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.percentage-number {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #feca57, #ff9ff3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  line-height: 0.8;
+}
+
+.percentage-label {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.message {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  line-height: 1.4;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Liked Cats Section */
+.liked-cats-section {
+  margin-bottom: 2rem;
+}
+
+.liked-cats-section h2 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.liked-cats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.liked-cat {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.liked-cat:hover {
+  transform: scale(1.05);
+}
+
+.liked-cat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heart-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Action Buttons */
+.summary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px;
+  margin: 0 auto 2rem;
+}
+
+.restart-btn, .share-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.restart-btn {
+  background: 	#fe3c72;
+  color: white;
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(78, 205, 196, 0.6);
+}
+
+.share-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.share-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  margin-top: auto;
+  padding-top: 2rem;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.app-footer a {
+  color: #feca57;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .summary {
+    padding: 1.5rem 1rem;
+  }
+  
+  .summary-header h1 {
+    font-size: 2rem;
+  }
+  
+  .percentage-number {
+    font-size: 3rem;
+  }
+  
+  .message {
+    font-size: 1.1rem;
+  }
+  
+  .liked-cats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary {
+    padding: 1rem 0.75rem;
+  }
+  
+  .summary-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .summary-stats {
+    gap: 0.75rem;
+  }
+  
+  .stat-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .stat-number {
+    font-size: 1.3rem;
+  }
+  
+  .percentage-number {
+    font-size: 2.5rem;
+  }
+  
+  .message {
+    font-size: 1rem;
+  }
+  
+  .liked-cats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .summary-actions {
+    gap: 0.75rem;
+  }
+  
+  .restart-btn, .share-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .summary {
+    padding: 1rem;
+  }
+  
+  .summary-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .summary-header h1 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .percentage {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .summary {
+    padding: 1rem 1rem 0.5rem;
+  }
+  
+  .summary-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .summary-stats {
+    margin-bottom: 1rem;
+  }
+  
+  .percentage {
+    margin-bottom: 0.75rem;
+  }
+  
+  .percentage-number {
+    font-size: 2rem;
+  }
+  
+  .liked-cats-section {
+    margin-bottom: 1rem;
+  }
+  
+  .liked-cats-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .app-footer {
+    padding-top: 1rem;
+    font-size: 0.8rem;
+  }
+}

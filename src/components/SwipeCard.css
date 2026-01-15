@@ -1,0 +1,181 @@
+/* SwipeCard Component Styles */
+.swipe-card {
+  position: absolute;
+  width: 300px;
+  height: 450px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  will-change: transform;
+  touch-action: none; /* Prevent browser handling of touch */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+.swipe-card:active {
+  cursor: grabbing;
+}
+
+.swipe-card.active {
+  z-index: 2;
+}
+
+.card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Like/Dislike Indicator */
+.like-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  pointer-events: none;
+  z-index: 3;
+  animation: popup 0.3s ease;
+}
+
+.like-indicator.like {
+  background: rgba(76, 175, 80, 0.9);
+  color: white;
+  border: 3px solid #4CAF50;
+}
+
+.like-indicator.dislike {
+  background: rgba(244, 67, 54, 0.9);
+  color: white;
+  border: 3px solid #F44336;
+}
+
+@keyframes popup {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Card Overlay for better text contrast */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  pointer-events: none;
+}
+
+.gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .swipe-card {
+    width: calc(100vw - 60px);
+    max-width: 350px;
+    height: calc(100vh - 280px);
+    max-height: 500px;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .swipe-card {
+    width: calc(100vw - 40px);
+    max-width: 320px;
+    height: calc(100vh - 260px);
+    border-radius: 16px;
+  }
+  
+  .like-indicator {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-height: 700px) {
+  .swipe-card {
+    height: calc(100vh - 240px);
+    max-height: 400px;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .swipe-card {
+    height: calc(100vh - 180px);
+    max-height: 350px;
+  }
+}
+
+/* Touch feedback */
+@media (hover: none) and (pointer: coarse) {
+  .swipe-card {
+    cursor: default;
+  }
+  
+  .swipe-card:active {
+    cursor: default;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .swipe-card {
+    transition: none;
+  }
+  
+  .card-content img {
+    transition: none;
+  }
+  
+  @keyframes popup {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .swipe-card {
+    border: 2px solid #000;
+  }
+  
+  .like-indicator.like {
+    background: #4CAF50;
+    color: #fff;
+    border-color: #000;
+  }
+  
+  .like-indicator.dislike {
+    background: #F44336;
+    color: #fff;
+    border-color: #000;
+  }
+}
