@@ -22,11 +22,11 @@ A delightful mobile-first web application that helps you discover your cat prefe
 
 1. **Start Swiping**: Browse through a curated collection of 15 adorable cats
 2. **Express Your Preference**: 
-   - Swipe right (👉) or tap the heart to like
-   - Swipe left (👈) or tap the X to pass
+   - Swipe right (👉) to like
+   - Swipe left (👈) to pass
 3. **Track Progress**: Watch the progress bar as you make your way through all cats
 4. **View Results**: See your match rate and gallery of liked cats
-5. **Share & Restart**: Share your results or start over with new cats
+
 
 ## 🛠️ Tech Stack
 
@@ -41,7 +41,7 @@ A delightful mobile-first web application that helps you discover your cat prefe
 ## 🏃‍♂️ Quick Start
 
 ### Prerequisites
-- Node.js 18+ and npm
+- Node.js 22+ and npm
 
 ### Installation
 
@@ -151,9 +151,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Add appropriate comments for complex logic
 5. Update documentation as needed
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
